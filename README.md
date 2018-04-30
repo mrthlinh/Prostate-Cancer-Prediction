@@ -21,11 +21,12 @@ Predict Prostate Cancer with various linear models
 - pgg45: percent of Gleason scores 4 or 5
 
 **EDA**
-1. Histogram
+Histogram:
 
-
-| | | |
-|:-------------------------:|:-------------------------:|:-------------------------:|
-|1|2|3|
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
 
 |![](https://github.com/mrthlinh/Prostate-Cancer-Prediction/blob/master/pic/his-age.png)|
