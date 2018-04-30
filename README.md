@@ -22,4 +22,4 @@ Predict Prostate Cancer with various linear models
 
 **EDA**
 
-![](https://github.com/mrthlinh/Prostate-Cancer-Prediction/tree/master/pic/his-age.png)
+![](https://github.com/mrthlinh/Prostate-Cancer-Prediction/blob/master/pic/his-age.png)
