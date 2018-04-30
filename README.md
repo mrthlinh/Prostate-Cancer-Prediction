@@ -67,50 +67,45 @@ Now let’s investigate the correlations between variables
 |![](https://github.com/mrthlinh/Prostate-Cancer-Prediction/blob/master/pic/boxplot-lcavol-svi.png)|![](https://github.com/mrthlinh/Prostate-Cancer-Prediction/blob/master/pic/boxplot-lpsa-svi.png)|
 |:--:|:--:|
 |95 percent confidence interval: -2.047129 -1.110409|95 percent confidence interval: -1.917326 -1.150810|
+# Linear Classifiers
+I invesigate 6 Classifiers
+
+__Least Square Error__
+1. Usual least squares: Minimize the least square error
+2. Best-subset selection: This approach involves identifying a subset of the __p__ predictors that we believe to be related to the response. We then fit a model using least squares on the reduced set of variables.
+
+__Regularization / shrinkage__: This approach involves fitting a model involving all p predictors. However, the estimated coefficients are shrunken towards zero relative to the least squares estimates. This shrinkage (also known as
+regularization) has the effect of reducing variance. Depending on what
+type of shrinkage is performed, some of the coefficients may be estimated to be exactly zero. Hence, shrinkage methods can also perform
+variable selection.
+3. Ridge Regresion: Minimize \alpha
+4. Lasso
+
+$$
+\frac{n!}{k!(n-k)!} = {n \choose k}
+$$
+
+__Dimension Reduction__: This approach involves projecting the p predictors into a M-dimensional subspace, where M < p. This is achieved
+by computing M different linear combinations, or projections, of the
+variables. Then these M projections are used as predictors to fit a
+linear regression model by least squares.
+5. PCR
+6. PLS
 
 # Results
-|Term|LS|Best subset	Ridge	Lasso	PCR (8  ncomp)	PLS (7 ncomp)
-Intercept	0.181561	0.494154754
-	0.001797776
-	0.180062440
-	0	0
-lcavol	0.564341279	0.569546032
-	0.486656952
-	0.560672762
-	0.66514667
-	0.66490149
 
-lweight	0.622019787
-	0.614419817	0.602120681	0.618795888	0.26648026	0.26713102
-age	-0.021248185
-	-0.020913467	-0.016371775	-0.020638683 	-0.15819522	-0.15827786
-lbph	0.096712523
-	0.097352535
-	0.084976632
-	0.095170395
-	0.14031117
-	0.13976404
+|Term|LS  |Best subset|Ridge	Regresion| Lasso|PCR (8  ncomp)|PLS (7 ncomp)|
+|:---|:--:|:--:       |:--:            |:--:  |:--:          |:--:|
+|Intercept|0.181561|0.494154754|0.001797776|0.180062440|0|0|
+|lcavol|0.564341279|0.569546032|0.486656952|0.560672762|0.66514667|0.66490149|
+|lweight|0.622019787|0.614419817|0.602120681|0.618795888|0.26648026|0.26713102|
+|age|-0.021248185|-0.020913467|-0.016371775|-0.020638683|-0.15819522|-0.15827786|
+|lbph|0.096712523|0.097352535|0.084976632|0.095170395|0.14031117|0.13976404
+|svi|0.761673403|0.752397342	|0.679825448	|0.750853157	|0.31532888	|0.31530989
+|lcp|-0.106050939|	-0.104959408|  	-0.035114327 | 	-0.098467238|	-0.14828568|	-0.14851785
+|gleason	|0.049227933|	|	0.064628095  |	0.047253050|	0.03554917|	0.03590506
+|pgg45	|0.004457512 |	0.005324465|	0.003351914|	0.004310552|	0.12571982|	0.12575997
+|__Test Error__ |	0.5521303|	0.5428351 |	0.5391117 |	0.5514344 |	0.5651155|	0.5650907
 
-svi	0.761673403
-	0.752397342
-	0.679825448
-	0.750853157
-	0.31532888
-	0.31530989
-
-lcp	-0.106050939	-0.104959408  	-0.035114327  	-0.098467238	-0.14828568	-0.14851785    
-
-gleason	0.049227933
-		0.064628095  	0.047253050
-	0.03554917
-	0.03590506
-pgg45	0.004457512 	0.005324465	0.003351914	0.004310552
-	0.12571982
-	0.12575997
-Test Error
-	0.5521303
-	0.5428351
- 	0.5391117
- 	0.5514344
- 	0.5651155
-	0.5650907
+# Conclusion
+According to result table, we see that PCR and PLS perform pretty much similar, LS and Lasso also share same results. “Best Subset” method omits “gleason” while “Lasso” still keeps it, however ”best subset” shows slight improvement. “Ridge regression” shows the smallest test error in this case. Therefore, we can recommend ridge regression.
