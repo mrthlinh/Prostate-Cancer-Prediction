@@ -78,19 +78,20 @@ __Regularization / shrinkage__: This approach involves fitting a model involving
 regularization) has the effect of reducing variance. Depending on what
 type of shrinkage is performed, some of the coefficients may be estimated to be exactly zero. Hence, shrinkage methods can also perform
 variable selection.
-3. Ridge Regresion: Minimize \alpha
-4. Lasso
+3. Ridge Regression: Minimize ![](https://latex.codecogs.com/gif.latex?RSS&space;&plus;&space;\lambda\sum_{j=1}^{p}&space;\beta^{2}_{j})
+with ![](https://latex.codecogs.com/gif.latex?\lambda)  is chosen by 10-fold Cross Validation. Ridge regression works best in situations where the least squares estimates have high variance because by adjusting ![](https://latex.codecogs.com/gif.latex?\lambda) we are trading-off bias and variance  
+4. Lasso: Minimize ![](https://latex.codecogs.com/gif.latex?RSS&space;&plus;&space;\lambda\sum_{j=1}^{p}&space;|\beta_{j}|) with ![](https://latex.codecogs.com/gif.latex?\lambda)  is chosen by 10-fold Cross Validation. Lasso not only has same power as Ridge Regression but also perform "Feature Selection" - identify which features are important.
 
-$$
-\frac{n!}{k!(n-k)!} = {n \choose k}
-$$
+In general, one might expect the lasso to perform better in a setting where a relatively small number of predictors have substantial coefficients, and the remaining predictors have coefficients that are very small or that equal zero. Ridge regression will perform better
+when the response is a function of many predictors, all with coefficients of roughly equal size. However, the number of predictors that is related to the response is never known a priori for real data sets. A technique such as cross-validation can be used in order to determine which approach is better on a particular data set.
 
 __Dimension Reduction__: This approach involves projecting the p predictors into a M-dimensional subspace, where M < p. This is achieved
 by computing M different linear combinations, or projections, of the
 variables. Then these M projections are used as predictors to fit a
 linear regression model by least squares.
-5. PCR
-6. PLS
+
+5. Principal Component Regression (PCR): Using the first M principal components, Z1, . . . , ZM (__unsupervised__), and then using these components as the predictors in a linear regression model that is fit using least squares.
+6. Partial Least Squares (PLS): Unlike PCR, PLS chooses first M principal components in a  __supervised__ way. Roughly speaking, the PLS approach attempts to find directions that help explain both the response and the predictors.
 
 # Results
 
