@@ -20,3 +20,6 @@ Predict Prostate Cancer with various linear models
 - gleason: Gleason score
 - pgg45: percent of Gleason scores 4 or 5
 
+**EDA**
+
+![](https://github.com/mrthlinh/Prostate-Cancer-Prediction/tree/master/pic/his-age.png)
