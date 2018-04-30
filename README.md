@@ -110,3 +110,14 @@ linear regression model by least squares.
 
 # Conclusion
 According to result table, we see that PCR and PLS perform pretty much similar, LS and Lasso also share same results. “Best Subset” method omits “gleason” while “Lasso” still keeps it, however ”best subset” shows slight improvement. “Ridge regression” shows the smallest test error in this case. Therefore, we can recommend ridge regression.
+
+# Task List
+
+- [ ] Add non-linear classifiers:
+  - [ ] decision-tree random forest, boosting tree.
+  - [ ] KNN
+  - [ ] SVM with Gaussian Kernel
+- [x] Add linear classifiers:
+  - [x] Least Square and Best Subset Selection
+  - [x] Ridge Regression and lasso
+  - [x] Principal Component Regression and Partial Least Squares
